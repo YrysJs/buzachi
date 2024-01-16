@@ -291,7 +291,7 @@ const Home = ({quotes, products, articles}) => {
 
 export default Home;
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
   const response = await api.get('/main', {
     headers: { 'Accept-Language' : locale }
   })

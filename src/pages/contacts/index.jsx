@@ -43,7 +43,7 @@ const Contacts = (data) => {
     )
 }
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ locale }) {
     const response = await api.get('/contacts', {
         headers: { 'Accept-Language' : locale }
     })
