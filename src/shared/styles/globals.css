@@ -63,6 +63,10 @@
 }
 
 .custom-dots .slick-active .custom-dot {
+  margin-top: -2px;
+}
+
+.custom-dots .slick-active .custom-dot {
   width: 20px;
   height: 20px;
   background-color: #1F2937;
