@@ -23,10 +23,10 @@ const NewsDetails = ({ data }) => {
             </h1>
           </div>
           <div className="relative h-[308px] md:h-[initial] md:flex-[3] lg:flex-[3]">
-            <Image src={data.image} fill={true} alt="text" objectFit="cover" />
-            {/* <video className="w-full h-full object-cover" controls>
-                            <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
-                        </video> */}
+            { !data.video ? <Image src={data.image} fill={true} alt="text" objectFit="cover" /> : <video className="w-full h-full object-cover" controls>
+                <source src={data.video} />
+            </video>}
+            
           </div>
         </div>
         <div
