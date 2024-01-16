@@ -114,7 +114,7 @@ export default function Header({locale}) {
                     instanceId="header"
                     className="hidden smd:block font-Int font-medium"
                     styles={customStyles}
-                    value={lang.find(item => item.locale === i18n.language)}
+                    value={lang.find(item => item.locale === locale)}
                     options={lang}
                     onChange={handleChange}
                     getOptionLabel={(option) => t(option.label)}
