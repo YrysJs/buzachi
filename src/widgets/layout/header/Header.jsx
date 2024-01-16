@@ -4,7 +4,8 @@ import { usePathname } from "next/navigation"
 import { useState } from "react"
 import clsx from "clsx"
 import { useRouter } from "next/router"
-import { useTranslation } from "next-i18next"
+import { i18n, useTranslation } from "next-i18next"
+import Select from 'react-select'
 
 const navigationPath = [
     {
@@ -25,16 +26,49 @@ const navigationPath = [
     }
 ]
 
+const lang = [
+    {
+        value: 'ru',
+        label: 'Русский',
+        locale: 'ru'
+    },
+    {
+        value: 'kz',
+        label: 'Казахский',
+        locale: 'kz'
+    },
+    {
+        value: 'en',
+        label: 'English',
+        locale: 'en'
+    },
+]
+
+const customStyles = {
+    control: (base, state) => ({
+        ...base,
+        border: 'none',
+        boxShadow: 'none'
+    }),
+    option: (provided, state) => ({
+        ...provided,
+        backgroundColor: state.isSelected ? '#E5E7EB' : 'white',
+        color: 'black'
+    }),
+};
+
+
 export default function Header({locale}) {
-    // const pathName = usePathname()
     const [menuState, setMenuState] = useState(false)
     const pathname = usePathname()
     const router = useRouter()
-
-    const changeLang = (e) => {
-        router.push('/', {locale: e.target.value})
-    }
     const {t} = useTranslation()
+
+    const handleChange = (selectedOption) => {
+        const locale = selectedOption.value;
+        router.push(router.asPath, undefined, { locale });
+        i18n.changeLanguage(locale);
+    };
 
     return (
         <header className="py-6 md:py-8 lg:py-10 xl:py-12 sticky top-0 left-0 smd:static bg-[#fff] z-[9999] w-full">
@@ -65,8 +99,8 @@ export default function Header({locale}) {
                                 return (
                                 <li key={route.path}>
                                     <Link href={route.path} className={clsx('font-Mon', {
-                                        ['text-gray_900'] : pathname == route.path,
-                                        ['text-gray_500'] : pathname !== route.path,})
+                                        ['text-gray_900'] : router.asPath == route.path,
+                                        ['text-gray_500'] : router.asPath !== route.path,})
                                         }>
                                         {t(route.text)}
                                     </Link>
@@ -76,11 +110,16 @@ export default function Header({locale}) {
                         }
                     </ul>
                 </nav>
-                <select className="hidden smd:block font-Int font-medium" onChange={changeLang}>
-                    <option value="ru">Русский</option>
-                    <option value="kz">Казахский</option>
-                    <option value="en">English</option>
-                </select>
+                <Select 
+                    instanceId="header"
+                    className="hidden smd:block font-Int font-medium"
+                    styles={customStyles}
+                    value={lang.find(item => item.locale === i18n.language)}
+                    options={lang}
+                    onChange={handleChange}
+                    getOptionLabel={(option) => t(option.label)}
+                    getOptionValue={(option) => option.value}
+                />
                 <div className={clsx('block smd:hidden grid w-full grid-rows-none duration-500	', {
                     ['show-menu overflow-visible animated-menu'] : menuState,
                     ['hide-menu overflow-hidden'] : !menuState,
@@ -101,9 +140,9 @@ export default function Header({locale}) {
                         </ul>
                     </nav>
                     <div className="text-sm py-4 flex justify-between font-Mon font-semibold">
-                        <Link href={router.asPath} locale={"ru"} className="uppercase" onClick={() => setMenuState(false)}>Русский</Link>
-                        <Link href={router.asPath} locale={"kz"} className="uppercase" onClick={() => setMenuState(false)}>Казахский</Link>
-                        <Link href={router.asPath} locale={"en"} className="uppercase" onClick={() => setMenuState(false)}>English</Link>
+                        <Link href={router.asPath} locale={"ru"} className={`uppercase ${locale === 'ru' ? 'text-gray_900':'text-gray_500'}`} onClick={() => setMenuState(false)}>Русский</Link>
+                        <Link href={router.asPath} locale={"kz"} className={`uppercase ${locale === 'kz' ? 'text-gray_900':'text-gray_500'}`} onClick={() => setMenuState(false)}>Казахский</Link>
+                        <Link href={router.asPath} locale={"en"} className={`uppercase ${locale === 'en' ? 'text-gray_900':'text-gray_500'}`} onClick={() => setMenuState(false)}>English</Link>
                     </div>
                 </div>
             </div>

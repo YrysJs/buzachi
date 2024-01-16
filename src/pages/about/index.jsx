@@ -27,7 +27,7 @@ const About = () => {
         </div>
       </section>
       <section className="container pb-[52px] pt-[30px] md:pb-0 md:pt-0 font-Mon">
-        <div className="p-4 sm:py-6 sm:px-12 bg-gray_800 text-gray_50 rounded-lg">
+        <div className="p-4 sm:py-6 sm:px-12 bg-gray_800 text-gray_50 rounded-lg text-sm md:text-lg">
           {t('about.hero_content')}
         </div>
       </section>
@@ -37,13 +37,13 @@ const About = () => {
             <h3 className="font-extrabold text-xl md:text-2xl mb-2.5">
               {t('about.about_card.mission')}
             </h3>
-            <p className="text-base md:text-2xl">
+            <p className="text-base md:text-lg">
               {t('about.about_card.mission_text')}
             </p>
           </div>
           <div className="bg-gray_50 p-4 sm:p-6 md:p-9 lg:p-12 rounded-lg">
             <h3 className="font-extrabold text-xl md:text-2xl mb-2.5">{t('about.about_card.target')}</h3>
-            <p className="text-base md:text-2xl">
+            <p className="text-base md:text-lg">
             {t('about.about_card.target_text')}
             </p>
           </div>
@@ -51,7 +51,7 @@ const About = () => {
             <h3 className="font-extrabold text-xl md:text-2xl mb-2.5">
             {t('about.about_card.values')}
             </h3>
-            <p className="text-base md:text-2xl">
+            <p className="text-base md:text-lg">
             {t('about.about_card.values_text')}
             </p>
           </div>
@@ -60,7 +60,7 @@ const About = () => {
           <h3 className="font-extrabold text-xl md:text-2xl mb-2.5">
             {t('about.about_card.strategy')}
           </h3>
-          <p className="text-base md:text-2xl">
+          <p className="text-base md:text-lg">
           {t('about.about_card.strategy_text')}
           </p>
         </div>
@@ -154,7 +154,7 @@ const About = () => {
               <button
                 onClick={() => setTabIndex(1)}
                 className={clsx(
-                  "w-fit border-l-2 border-gray_400 hover:border-gray_600 px-4 py-2 text-gray_500 hover:text-gray_600 text-base md:text-lg font-bold",
+                  "w-fit border-l-2 border-gray_400 hover:border-gray_600 px-4 py-2 text-gray_500 hover:text-gray_600 text-base md:text-2xl font-bold",
                   {
                     ["border-gray_900 text-gray_900"]: tabIndex === 1,
                   }
@@ -165,7 +165,7 @@ const About = () => {
               <button
                 onClick={() => setTabIndex(2)}
                 className={clsx(
-                  "w-fit border-l-2 border-gray_400 hover:border-gray_600 px-4 py-2 text-gray_500 hover:text-gray_600 text-base md:text-lg font-bold",
+                  "w-fit border-l-2 border-gray_400 hover:border-gray_600 px-4 py-2 text-gray_500 hover:text-gray_600 text-base md:text-2xl font-bold",
                   {
                     ["border-gray_900 text-gray_900"]: tabIndex === 2,
                   }
@@ -176,7 +176,7 @@ const About = () => {
               <button
                 onClick={() => setTabIndex(3)}
                 className={clsx(
-                  "w-fit border-l-2 border-gray_400 hover:border-gray_600 px-4 py-2 text-gray_500 hover:text-gray_600 text-base md:text-lg font-bold",
+                  "w-fit border-l-2 border-gray_400 hover:border-gray_600 px-4 py-2 text-gray_500 hover:text-gray_600 text-base md:text-2xl font-bold",
                   {
                     ["border-gray_900 text-gray_900"]: tabIndex === 3,
                   }
@@ -186,7 +186,7 @@ const About = () => {
               </button>
             </div>
             {tabIndex === 1 && (
-              <div className="flex flex-col gap-3 text-xs md:text-base text-gray_900 mt-4">
+              <div className="flex flex-col gap-3 text-sm md:text-base text-gray_900 mt-4 bg-gray_100 p-4 md:p-0">
                 <p>
                   {t('about.field.vostok_one')}
                 </p>
@@ -209,7 +209,7 @@ const About = () => {
               </div>
             )}
             {tabIndex === 2 && (
-              <div className="flex flex-col gap-3 text-xs md:text-base text-gray_900 mt-4">
+              <div className="flex flex-col gap-3 text-sm md:text-base text-gray_900 mt-4 bg-gray_100 p-4 md:p-0">
                 <p>
                   {t('about.field.morskoi_one')}
                 </p>
@@ -232,7 +232,7 @@ const About = () => {
               </div>
             )}
             {tabIndex === 3 && (
-              <div className="flex flex-col gap-3 text-xs sm:text-base text-gray_900 mt-4">
+              <div className="flex flex-col gap-3 text-sm sm:text-base text-gray_900 mt-4 bg-gray_100 p-4 md:p-0">
                 <p>
                   {t('about.field.north_one')}
                 </p>
@@ -264,7 +264,7 @@ const About = () => {
       <section className="container py-6 sm:py-10 lg:py-[60px] font-Mon">
         <h3 className="text-2xl md:text-4xl font-bold mb-6">{t('about.principles.title')}:</h3>
         <div className="flex">
-          <div className="w-full xl:max-w-[878px] grid grid-cols-10 gap-6 justify-between">
+          <div className="w-full xl:max-w-[878px] grid grid-cols-10 gap-3 smd:gap-6 justify-between">
             <div className="p-2 md:p-4 flex gap-4 text-xs sm:text-xl items-center leading-4 md:leading-6 text-gray_900 bg-gray_100 rounded-lg col-span-10">
               <div className="hidden lg:block">
                 <svg
@@ -412,10 +412,10 @@ const About = () => {
           <h3 className="font-bold text-xl md:text-2xl leading-6">
           {t('about.secure.title')}
           </h3>
-          <p className="my-6 font-semibold text-base md:text-xl leading-[18px] md:leading-6">
+          <p className="my-6 font-medium text-base md:text-xl leading-[18px] md:leading-6">
           {t('about.secure.title_text_1')}
           </p>
-          <p className="font-semibold text-base md:text-xl leading-[18px] md:leading-6">
+          <p className="font-medium text-base md:text-xl leading-[18px] md:leading-6">
           {t('about.secure.title_text_2')}
           </p>
         </div>
@@ -465,7 +465,7 @@ const About = () => {
 export default About;
 
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
   return {
       props: {
           ...(await serverSideTranslations(locale, ['common'])),

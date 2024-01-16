@@ -4,6 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from "next-i18next";
 import Head from "next/head";
 import { api } from "@/shared/api";
+import { useRouter } from "next/router";
 
 const News = (data) => {
     const { t } = useTranslation()
@@ -15,9 +16,20 @@ const News = (data) => {
         const formattedDate = day + "." + month + "." + year;
     
         return formattedDate;
-      };
+    };
+    const router = useRouter()
+    const removeEmpty = (obj) => {
+        return Object.fromEntries(
+            Object.entries(obj)
+                .filter(([_, v]) => v != null)
+                .map(([k, v]) => [k, v === Object(v) ? removeEmpty(v) : v])
+        );
+    }
 
-    console.log(data)
+    const enableFilter = (query) => {
+        router.push({ pathname: '/news', query: removeEmpty({ ...router.query, ...query }) })
+    }
+
     return (
         <>
             <Head>
@@ -37,7 +49,7 @@ const News = (data) => {
                         )
                     })}
                 </div>
-                <Pagination totalCount={data.articles.total} currentPage={1}/>
+                <Pagination totalCount={data.articles.last_page} pageSize={15} currentPage={1} onPageChange={(page) => enableFilter({ page})}/>
             </div>
         </>
     )

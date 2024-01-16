@@ -4,9 +4,9 @@ import { useTranslation } from 'next-i18next'
 
 const Pagination = ({
   onPageChange,
-  totalCount = 1,
-  siblingCount = 1,
-  currentPage = 1,
+  totalCount,
+  siblingCount,
+  currentPage,
   pageSize = 10,
   className
 }) => {

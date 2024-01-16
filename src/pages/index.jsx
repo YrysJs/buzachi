@@ -5,22 +5,37 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from "next-i18next";
 import Head from "next/head";
 import { api } from "@/shared/api";
+import clsx from "clsx";
 
 const settings = {
   dots: true,
   infinite: true,
+  autoplay: true,
   speed: 500,
   slidesToShow: 2,
   slidesToScroll: 1,
+  autoplaySpeed: 6000,
   responsive: [
     {
-      breakpoint: 850,
+      breakpoint: 1236,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1,
       },
     },
   ],
+  customPaging: function (i) {
+    return (
+      <div className={clsx('custom-dot', {})}></div>
+    );
+  },
+  appendDots: (dots) => (
+    <div>
+      <ul className='custom-dots' style={{ display: 'flex', justifyContent: 'center', alignItems: "center", position: "relative", top: "-50px"}}>
+        {dots}
+      </ul>
+    </div>
+  )
 };
 
 const Home = ({quotes, products, articles}) => {
@@ -37,6 +52,20 @@ const Home = ({quotes, products, articles}) => {
     return formattedDate;
   };
 
+  const getDate = () => {
+      const currentDate = new Date();
+      const day = currentDate.getDate();
+      const month = currentDate.getMonth() + 1;
+      const year = currentDate.getFullYear();
+
+      const formattedDay = day < 10 ? `0${day}` : day;
+      const formattedMonth = month < 10 ? `0${month}` : month;
+
+      const formattedDate = `${formattedDay}.${formattedMonth}.${year}`;
+
+      return formattedDate;
+  }
+
   return (
     <>
       <Head>
@@ -45,7 +74,7 @@ const Home = ({quotes, products, articles}) => {
       <main>
       <section className="bg-main-hero bg-no-repeat bg-center lg:bg-right font-Mon h-[100vh] bg-cover">
         <div className="container">
-          <div className="max-w-[560px] pt-10 lg:pt-[73px] text-gray_900">
+          <div className="max-w-[560px] pt-10 lg:pt-[73px] text-gray_900 pr-3 sm:pr-0">
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4">
               {t('main.hero_title')}
             </h1>
@@ -55,17 +84,17 @@ const Home = ({quotes, products, articles}) => {
           </div>
         </div>
       </section>
-      <section className="py-10 bg-gray_900 !font-Mon">
+      <section className="py-6 md:py-10 bg-gray_900 !font-Mon">
         <div className="container flex flex-col xl:flex-row items-start md:items-center justify-between gap-4 xl:gap-0">
           <div>
             <h3 className="text-2xl font-extrabold text-gray_50">{t('main.quotes_title')}</h3>
-            <p className="text-sm text-gray_50">{t('main.quotes_date')}: 12.12.2023</p>
+            <p className="text-sm text-gray_50">{t('main.quotes_date')}: {getDate()}</p>
           </div>
           <div className="lg:shrink xl:shrink-0 self-stretch bg-gray_50 h-[1px] w-[auto] xl:h-[auto] xl:w-[1px]"></div>
           <div className="grid grid-cols-2 xl:grid-cols-4 gap-[26px]">
             {quotes.map(item => {
               return (
-                <div key={item.name} className="py-2 px-4 rounded-lg bg-gray_800 flex gap-4 items-center justify-between">
+                <div key={item.name} className="py-2 px-2 md:px-4 rounded-lg bg-gray_800 flex gap-2 md:gap-4 items-center justify-between">
                   <span className="text-lg md:text-2xl font-medium text-[#fff]">
                     {item.name}
                   </span>
@@ -157,7 +186,7 @@ const Home = ({quotes, products, articles}) => {
           {t('main.stats_text')}
         </h3>
         <div className="bg-gray_100 flex flex-col items-center gap-2 py-6 rounded-lg">
-          <h3 className="text-4xl md:text-5xl font-extrabold">30 {t('main.stats_year')}</h3>
+          <h3 className="text-4xl md:text-5xl montserrat-text font-extrabold">30 {t('main.stats_year')}</h3>
           <p className="text-base sm:text-xl md:text-2xl">{t('main.stats_year_text')}</p>
         </div>
         <div className="bg-gray_100 flex flex-col items-center gap-2 py-6 rounded-lg">
@@ -165,40 +194,34 @@ const Home = ({quotes, products, articles}) => {
           <p className="text-base sm:text-xl md:text-2xl">{t('main.stats_count')}</p>
         </div>
       </section>
-      <section className="container py-6 md:py-10 lg:py-[60px] font-Mon">
-        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+      <section className="py-6 md:py-10 lg:py-[60px] font-Mon">
+        <h3 className="container text-2xl sm:text-3xl md:text-4xl font-bold">
           {t('main.products_title')}
         </h3>
-        <div className="my-[28px]">
+        <div className="my-[28px] overflow-hidden">
           <Slider {...settings}>
             { products.map(item => {
               return ( 
-                <div key={item.id} className="relative py-8 smd:py-0 overflow-hidden min-h-[325px]">
+                <div key={item.id} className="relative py-8 smd:py-0 min-h-[436px]">
                   <div className="block smd:hidden">
-                    <Image
-                      className="absolute right-[-50px] z-10 smd:z-0 top-[-30px]"
-                      width={150}
-                      height={150}
-                      objectFit="contain"
+                    <img
+                      className="absolute w-[130px] h-[130px] object-contain right-[-30px] z-10 smd:z-0 top-[0px]"
                       src={item.image}
                       alt=""
                     />
                   </div>
                   <div className="hidden smd:block">
-                    <Image
-                      className="absolute z-10 smd:z-0 top-[30px]"
-                      width={322}
-                      height={322}
-                      objectFit="contain"
+                    <img
+                      className="absolute z-10 smd:z-0 top-[30px] left-[100px] w-[244px] h-[244px]"
                       src={item.image}
                       alt=""
                     />
                   </div>
-                  <div className="relative ml-auto smd:mr-[30px] smd:w-[70%] bg-gray_100 p-6 rounded-lg">
-                    <h3 className="text-base smd:text-2xl font-extrabold text-gray_900 mb-[10px]">
+                  <div className="relative min-h-[336px] mx-auto smd:mr-[30px] w-[90%] smd:w-[70%] bg-gray_100 p-4 smd:p-6 rounded-lg">
+                    <h3 className="text-base sm:text-2xl font-extrabold text-gray_900 mb-[10px] pr-8 sm:pr-0">
                       {item.title}
                     </h3>
-                    <p className="text-base smd:text-2xl text-gray_900">
+                    <p className="text-base sm:text-2xl text-gray_900 pr-8 sm:pr-0">
                       {item.text}
                     </p>
                   </div>
@@ -212,7 +235,7 @@ const Home = ({quotes, products, articles}) => {
         <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">
           {t('main.main_about.title')}
         </h3>
-        <div className="grid lg:grid-cols-3 gap-7">
+        <div className="grid lg:grid-cols-3 gap-4 smd:gap-7">
           <div className="bg-gray_100 p-4 sm:p-6 md:p-9 lg:p-12 rounded-lg">
             <h3 className="font-extrabold text-xl md:text-2xl mb-2.5">
               {t('main.main_about.mission')}
@@ -247,7 +270,7 @@ const Home = ({quotes, products, articles}) => {
       </section>
       <section className="container py-6 md:py-10 lg:py-[60px] font-Mon">
         <h3 className="text-2xl sm:text-4xl font-bold">{t('main.news_title')}</h3>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7 mt-7 font-Int">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 smd:gap-7 mt-7 font-Int">
           { articles.map(item => {
             return (
               <Link key={item.id} href={`/news/${item.id}`}>
@@ -268,7 +291,7 @@ const Home = ({quotes, products, articles}) => {
 
 export default Home;
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
   const response = await api.get('/main', {
     headers: { 'Accept-Language' : locale }
   })

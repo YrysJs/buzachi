@@ -32,8 +32,8 @@ export default function Footer() {
             <div className="container">
                 { pathName !== '/contacts' ? 
                     <div className="flex flex-col-reverse lg:flex-row justify-between items-center bg-gray_100 py-4 px-4 sm:py-6 sm:px-12 my-6 md:my-10 lg:my-[60px] rounded-lg font-Mon">
-                        <div className="relative w-[310px] h-[310px] md:w-[492px] md:h-[400px]">
-                            <Image src="/assets/img/footer-form.png" fill={true} objectFit="contain" alt="footer_form" />
+                        <div className="relative min-w-[310px] min-h-[310px] md:w-[492px] md:h-[400px]">
+                            <img src="/assets/img/footer-form.png" className="mt-[24px] w-[95%] h-[95%]" alt="footer_form" />
                         </div>
                         <div className="max-w-[693px] w-[100%] flex flex-col gap-4">
                             <h3 className="font-bold text-2xl md:text-3xl lg:text-4xl text-gray_900">
@@ -54,7 +54,7 @@ export default function Footer() {
                                 </svg>
                             </Link>
                             <nav>
-                                <ul className="flex flex-wrap gap-10 text-base font-medium font-Int">
+                                <ul className="grid grid-cols-2 sm:flex flex-wrap gap-1 md:gap-10 text-base font-noraml font-Int">
                                     {
                                         navigationPath.map( (route) => {
                                             return (
