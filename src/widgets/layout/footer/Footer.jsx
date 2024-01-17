@@ -122,7 +122,7 @@ const Footer = ({locale}) => {
               </nav>
             </div>
             <div className="pr-1">
-              <Link href="/" className="w-[24px] h-[24px] relative block">
+              <Link href="https://kz.linkedin.com/company/buzachi-neft-llp?trk=public_post_reshare-text" className="w-[24px] h-[24px] relative block">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
