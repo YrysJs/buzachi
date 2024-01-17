@@ -35,7 +35,7 @@ const Contacts = (data) => {
                         </a>
                     </div>
                     <div className="w-[100%] sm:w-[340px] md:w-[450px] smd:w-[480px] lg:w-[638px] xl:w-[688px] h-[418px] mt-16 md: mt-0 relative">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5813.870612863835!2d76.89356078649989!3d43.23181601479249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2skz!4v1703570604230!5m2!1sru!2skz" width="100%" height="100%"  allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2907.4335834763237!2d76.9325069761541!3d43.22136827112585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38836fbb129f6f33%3A0xc029716df9fb0a43!2zNSwg0L_RgNC-0YHQv9C10LrRgiBB0LvRjC3QpNCw0YDQsNCx0LggMTA4LCDQkNC70LzQsNGC0YsgMDUwMDYw!5e0!3m2!1sru!2skz!4v1705482802121!5m2!1sru!2skz" width="100%" height="100%"  allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </section>
