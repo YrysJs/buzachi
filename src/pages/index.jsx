@@ -212,12 +212,12 @@ const Home = ({quotes, products, articles}) => {
                   </div>
                   <div className="hidden smd:block">
                     <img
-                      className="absolute z-10 smd:z-0 top-[30px] left-[100px] w-[244px] h-[244px]"
+                      className="absolute z-10 smd:z-0 top-[30px] left-[100px] w-[244px] h-[244px] slider-pic"
                       src={item.image}
                       alt=""
                     />
                   </div>
-                  <div className="relative min-h-[336px] mx-auto smd:mr-[30px] w-[90%] smd:w-[70%] bg-gray_100 p-4 smd:p-6 rounded-lg">
+                  <div className="relative slider-text min-h-[336px] mx-auto smd:mr-[30px] bg-gray_100 p-4 smd:p-6 rounded-lg">
                     <h3 className="text-base sm:text-2xl font-extrabold text-gray_900 mb-[10px] pr-8 sm:pr-0">
                       {item.title}
                     </h3>

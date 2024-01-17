@@ -218,10 +218,6 @@ const About = () => {
                 <p>
                 {t('about.field.vostok_four')}
                 </p>
-                <div className="w-[36px] h-[2px] bg-gray_400"></div>
-                <p>
-                {t('about.field.vostok_five')}
-                </p>
               </div>
             )}
             {tabIndex === 2 && (
@@ -240,10 +236,6 @@ const About = () => {
                 <div className="w-[36px] h-[2px] bg-gray_400"></div>
                 <p>
                   {t('about.field.morskoi_four')}
-                </p>
-                <div className="w-[36px] h-[2px] bg-gray_400"></div>
-                <p>
-                {t('about.field.morskoi_five')}
                 </p>
               </div>
             )}
@@ -267,10 +259,6 @@ const About = () => {
                 <div className="w-[36px] h-[2px] bg-gray_400"></div>
                 <p>
                   {t('about.field.north_five')}
-                </p>
-                <div className="w-[36px] h-[2px] bg-gray_400"></div>
-                <p>
-                  {t('about.field.north_six')}
                 </p>
               </div>
             )}

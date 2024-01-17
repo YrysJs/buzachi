@@ -22,7 +22,8 @@ module.exports = {
     extend: {
       screens: {
         xl: '1236px',
-        smd: '850px'
+        smd: '850px',
+        xss: '640px'
       },
       backgroundImage: {
         'main-hero' : "url('/assets/img/main-hero.png')",

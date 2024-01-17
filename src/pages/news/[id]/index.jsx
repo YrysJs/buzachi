@@ -5,9 +5,27 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { api } from "@/shared/api";
 import parse from 'html-react-parser'
 import React from 'react'
+import { useState, useRef } from "react";
+import clsx from "clsx";
 
 const NewsDetails = ({ data }) => {
   const { t } = useTranslation();
+  const [isPlaying, setIsPlaying] = useState(false)
+  const videoRef = useRef(null);
+
+  const handlePlayPause = () => {
+    if (isPlaying) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  const handleVideoEnded = () => {
+    setIsPlaying(false);
+  };
+
   return (
     <>
       <Head>
@@ -16,22 +34,32 @@ const NewsDetails = ({ data }) => {
         </title>
       </Head>
       <section className="container font-Mon">
-        <div className="flex flex-col md:flex-row sm:h-[initial] md:h-[406px] pt-6 lg:py-7">
-          <div className="py-6 lg:pr-6 md:flex-[4] lg:flex-[3] flex flex-col gap-3 justify-center">
+        <div className="grid smd:grid-cols-2 smd:gap-12 sm:h-[initial] pt-6 lg:py-7">
+          <div className="py-6 flex flex-col gap-3 justify-center">
             <h1 className="text-xl sm:text-2xl md:text-3xl/2 lg:text-3xl font-bold">
               {data.title}
             </h1>
           </div>
-          <div className="relative h-[308px] md:h-[initial] md:flex-[3] lg:flex-[3]">
-            { !data.video ? <Image src={data.image} fill={true} alt="text" objectFit="cover" /> : <video className="w-full h-full object-cover" controls>
-                <source src={data.video} />
-            </video>}
+          <div className="relative">
+            <div className={clsx('w-full h-[250px] sm:h-[374px] object-cover absolute z-10 duration-500', {
+              'z-[-1] hide-preview': isPlaying,
+              'z-10 show-preview': !isPlaying,
+            })}>
+              <Image src={data.image} fill={true} alt="text" objectFit="cover" />
+              {data.video && <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-[#fff] w-[60px] h-[60px] sm:w-[100px] sm:h-[100px] rounded-[50%] cursor-pointer" onClick={handlePlayPause}>
+                <img src="/assets/img/play.webp" alt="" />  
+              </div>}
+            </div>
+            { data.video && 
+              <video className="w-full h-[250px] sm:h-[374px] object-cover" controls ref={videoRef} onEnded={handleVideoEnded}>
+                  <source src={data.video} />
+              </video>
+            }
             
           </div>
         </div>
         <div
           className="max-w-[900px] flex flex-col gap-6 smd:gap-12 mx-auto text-base sm:text-xl smd:text-2xl text-gray_900 py-6 md:py-12"
-          // dangerouslySetInnerHTML={{ __html: data.text }}
         >
           <ModifiedJSX html={data.text}/>
         </div>
