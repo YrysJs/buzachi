@@ -182,7 +182,7 @@ const Home = ({quotes, products, articles}) => {
         </div>
       </section>
       <section className="container grid md:grid-cols-3 gap-7 text-center py-6 md:py-10 lg:py-[60px] text-gray_900 font-Mon">
-        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-left md:text-center">
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-left">
           {t('main.stats_text')}
         </h3>
         <div className="bg-gray_100 flex flex-col items-center gap-2 py-6 rounded-lg">
