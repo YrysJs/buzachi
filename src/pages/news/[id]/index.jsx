@@ -34,18 +34,24 @@ const NewsDetails = ({ data }) => {
         </title>
       </Head>
       <section className="container font-Mon">
-        <div className="grid smd:grid-cols-2 smd:gap-12 sm:h-[initial] pt-6 lg:py-7">
+        <div className={clsx('grid sm:h-[initial] pt-6 lg:py-7', {
+          'smd:grid-cols-2 smd:gap-12': data.image !== null || data.video !== null,
+          'w-fit mx-auto' : data.image == null && data.video == null
+        })}>
           <div className="py-6 flex flex-col gap-3 justify-center">
             <h1 className="text-xl sm:text-2xl md:text-3xl/2 lg:text-3xl font-bold">
               {data.title}
             </h1>
           </div>
-          <div className="relative">
+          <div className={clsx('relative', {
+            'sm:h-[374px]': data.image !== null || data.video !== null,
+            'hidden' : data.image == null && data.video == null
+          })}>
             <div className={clsx('w-full h-[250px] sm:h-[374px] object-cover absolute z-10 duration-500', {
               'z-[-1] hide-preview': isPlaying,
               'z-10 show-preview': !isPlaying,
             })}>
-              <Image src={data.image} fill={true} alt="text" objectFit="cover" />
+              { data.image && <Image src={data.image} fill={true} alt="text" objectFit="cover" />}
               {data.video && <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-[#fff] w-[60px] h-[60px] sm:w-[100px] sm:h-[100px] rounded-[50%] cursor-pointer" onClick={handlePlayPause}>
                 <img src="/assets/img/play.webp" alt="" />  
               </div>}
@@ -55,7 +61,6 @@ const NewsDetails = ({ data }) => {
                   <source src={data.video} />
               </video>
             }
-            
           </div>
         </div>
         <div
