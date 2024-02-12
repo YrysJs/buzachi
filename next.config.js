@@ -6,14 +6,14 @@ const nextConfig = {
   reactStrictMode: false,
   swcMinify: false,
   env: {
-    BASE_URL: 'https://zbs-a.a-lux.dev/api'
+    BASE_URL: 'http://185.233.3.103:8080/api'
   },
   images: {
-    domains: ['imageio.forbes.com', '185.182.219.249'],
+    domains: ['imageio.forbes.com', '185.182.219.249', '185.233.3.103'],
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'zbs-a.a-lux.dev',
+        protocol: 'http',
+        hostname: '185.233.3.103',
         port: '',
         pathname: '/storage/**',
       },
