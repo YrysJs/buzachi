@@ -1,0 +1,16 @@
+{
+  "/_app": "pages/_app.js",
+  "/_document": "pages/_document.js",
+  "/news/[id]": "pages/news/[id].js",
+  "/": "pages/index.js",
+  "/contacts": "pages/contacts.js",
+  "/about": "pages/about.js",
+  "/news": "pages/news.js",
+  "/_error": "pages/_error.js",
+  "/ru/404": "pages/ru/404.html",
+  "/kz/404": "pages/kz/404.html",
+  "/en/404": "pages/en/404.html",
+  "/ru/500": "pages/ru/500.html",
+  "/kz/500": "pages/kz/500.html",
+  "/en/500": "pages/en/500.html"
+}

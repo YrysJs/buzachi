@@ -1,0 +1,60 @@
+{
+  "polyfillFiles": [
+    "static/chunks/polyfills-78c92fac7aa8fdd8.js"
+  ],
+  "devFiles": [],
+  "ampDevFiles": [],
+  "lowPriorityFiles": [
+    "static/js8uk5g9uP8TS93zXbB76/_buildManifest.js",
+    "static/js8uk5g9uP8TS93zXbB76/_ssgManifest.js"
+  ],
+  "rootMainFiles": [],
+  "pages": {
+    "/": [
+      "static/chunks/webpack-df4cf1c8d23aa877.js",
+      "static/chunks/framework-4556c45dd113b893.js",
+      "static/chunks/main-2b9427ef3c2e7a3d.js",
+      "static/chunks/66-76ae74c770417782.js",
+      "static/chunks/pages/index-4277b1c978ea1f69.js"
+    ],
+    "/_app": [
+      "static/chunks/webpack-df4cf1c8d23aa877.js",
+      "static/chunks/framework-4556c45dd113b893.js",
+      "static/chunks/main-2b9427ef3c2e7a3d.js",
+      "static/css/5b6c1ad086be2743.css",
+      "static/chunks/pages/_app-b080b270b5518618.js"
+    ],
+    "/_error": [
+      "static/chunks/webpack-df4cf1c8d23aa877.js",
+      "static/chunks/framework-4556c45dd113b893.js",
+      "static/chunks/main-2b9427ef3c2e7a3d.js",
+      "static/chunks/pages/_error-7f1f326cc5f96728.js"
+    ],
+    "/about": [
+      "static/chunks/webpack-df4cf1c8d23aa877.js",
+      "static/chunks/framework-4556c45dd113b893.js",
+      "static/chunks/main-2b9427ef3c2e7a3d.js",
+      "static/chunks/pages/about-e85cc0215a37d0fa.js"
+    ],
+    "/contacts": [
+      "static/chunks/webpack-df4cf1c8d23aa877.js",
+      "static/chunks/framework-4556c45dd113b893.js",
+      "static/chunks/main-2b9427ef3c2e7a3d.js",
+      "static/chunks/pages/contacts-e21fe155e2108ee1.js"
+    ],
+    "/news": [
+      "static/chunks/webpack-df4cf1c8d23aa877.js",
+      "static/chunks/framework-4556c45dd113b893.js",
+      "static/chunks/main-2b9427ef3c2e7a3d.js",
+      "static/chunks/pages/news-91f1213fb6bcdae1.js"
+    ],
+    "/news/[id]": [
+      "static/chunks/webpack-df4cf1c8d23aa877.js",
+      "static/chunks/framework-4556c45dd113b893.js",
+      "static/chunks/main-2b9427ef3c2e7a3d.js",
+      "static/chunks/311-b78c3a67eeb1c065.js",
+      "static/chunks/pages/news/[id]-2a647953b37ca2ca.js"
+    ]
+  },
+  "ampFirstPages": []
+}
