@@ -34,7 +34,7 @@ const lang = [
     },
     {
         value: 'kz',
-        label: 'Казахский',
+        label: 'Қазақша',
         locale: 'kz'
     },
     {
