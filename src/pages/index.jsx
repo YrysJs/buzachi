@@ -88,7 +88,7 @@ const Home = ({quotes, products, articles}) => {
         <div className="container flex flex-col xl:flex-row items-start md:items-center justify-between gap-4 xl:gap-0">
           <div>
             <h3 className="text-2xl font-extrabold text-gray_50">{t('main.quotes_title')}</h3>
-            <p className="text-sm text-gray_50">{t('main.quotes_date')}: {getDate()}</p>
+            <p className="text-sm text-gray_50">{t('main.quotes_date')} {getDate()}</p>
           </div>
           <div className="lg:shrink xl:shrink-0 self-stretch bg-gray_50 h-[1px] w-[auto] xl:h-[auto] xl:w-[1px]"></div>
           <div className="grid grid-cols-2 xl:grid-cols-4 gap-[26px]">
