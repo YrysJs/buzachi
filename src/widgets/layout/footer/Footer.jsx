@@ -138,9 +138,9 @@ const Footer = ({locale}) => {
               </Link>
             </div>
           </div>
-          <h3 className="text-gray_400 text-base w-[50%] md:w-fit ml-0 md:ml-auto">
+          {/* <h3 className="text-gray_400 text-base w-[50%] md:w-fit ml-0 md:ml-auto">
             © 2020 Workflow, Inc. All rights reserved.
-          </h3>
+          </h3> */}
         </div>
       </div>
     </footer>
