@@ -254,3 +254,13 @@
   }
 }
 /* about hero img  утв*/
+
+.call-to_action-active {
+  display: none;
+}
+.call-to_action:hover > .call-to_action-active {
+  display: block;
+}
+.call-to_action:hover > .call-to_action-default {
+  display: none;
+}

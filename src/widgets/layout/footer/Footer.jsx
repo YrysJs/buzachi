@@ -62,17 +62,35 @@ const Footer = ({locale}) => {
                 {t("footer.title")}
               </h3>
               <a
-                className="block w-full py-2 md:py-4 bg-gray_300 text-center rounded-lg font-semibold text-base md:text-xl"
+                className="block sm:hidden w-full py-2 md:py-4 bg-gray_300 text-center rounded-lg font-semibold text-base md:text-xl"
                 href={`tel:${data.phone.replace(/[\s\(\)+]/g, '')}`}
               >
                 {t("footer.phone_text")}
               </a>
               <a
-                className="block w-full py-2 md:py-4 bg-gray_300 text-center rounded-lg font-semibold text-base md:text-xl"
+                className="block sm:hidden w-full py-2 md:py-4 bg-gray_300 text-center rounded-lg font-semibold text-base md:text-xl"
                 href={`mailto:${data.email}`}
               >
                 Email
               </a>
+              <div
+                className="call-to_action hidden sm:block w-full py-2 md:py-4 bg-gray_300 text-center rounded-lg font-semibold text-base md:text-xl"
+                href={`tel:${data.phone.replace(/[\s\(\)+]/g, '')}`}
+              >
+                <div className="call-to_action-default">{t("footer.phone_text")}</div>
+                <div className="call-to_action-active">
+                  { data.phone }
+                </div>
+              </div>
+              <div
+                className="call-to_action hidden sm:block w-full py-2 md:py-4 bg-gray_300 text-center rounded-lg font-semibold text-base md:text-xl"
+                href={`mailto:${data.email}`}
+              >
+                <div className="call-to_action-default">Email</div>
+                <div className="call-to_action-active">
+                  { data.email}
+                </div>
+              </div>
             </div>
           </div>
         ) : (
@@ -138,9 +156,9 @@ const Footer = ({locale}) => {
               </Link>
             </div>
           </div>
-          {/* <h3 className="text-gray_400 text-base w-[50%] md:w-fit ml-0 md:ml-auto">
-            © 2020 Workflow, Inc. All rights reserved.
-          </h3> */}
+          <h3 className="text-gray_400 text-base w-[50%] md:w-fit ml-0 md:ml-auto">
+            2024 Buzachi Oil LLP
+          </h3>
         </div>
       </div>
     </footer>
