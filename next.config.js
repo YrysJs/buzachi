@@ -4,16 +4,16 @@ const { i18n } = require('./next-i18next.config');
 const nextConfig = {
   i18n,
   reactStrictMode: false,
-  swcMinify: false,
+  swcMinify: true,
   env: {
-    BASE_URL: 'http://185.233.3.103:8080/api'
+    BASE_URL: 'https://buzachineft.kz:8080/api'
   },
   images: {
-    domains: ['imageio.forbes.com', '185.182.219.249', '185.233.3.103'],
+    domains: ['buzachineft.kz'],
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: '185.233.3.103',
+        protocol: 'https',
+        hostname: 'buzachineft.kz',
         port: '',
         pathname: '/storage/**',
       },
