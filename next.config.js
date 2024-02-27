@@ -6,13 +6,13 @@ const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
   env: {
-    BASE_URL: 'http://buzachineft.kz:8080/api'
+    BASE_URL: 'https://buzachineft.kz:8080/api'
   },
   images: {
     domains: ['buzachineft.kz'],
     remotePatterns: [
       {
-        protocol: 'http',
+        protocol: 'https',
         hostname: 'buzachineft.kz',
         port: '',
         pathname: '/storage/**',
