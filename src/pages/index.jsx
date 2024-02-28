@@ -194,7 +194,7 @@ const Home = ({quotes, products, articles}) => {
           <p className="text-base sm:text-xl md:text-2xl">{t('main.stats_count')}</p>
         </div>
       </section>
-      <section className="py-6 md:py-10 lg:py-[60px] font-Mon">
+      {/* <section className="py-6 md:py-10 lg:py-[60px] font-Mon">
         <h3 className="container text-2xl sm:text-3xl md:text-4xl font-bold">
           {t('main.products_title')}
         </h3>
@@ -230,7 +230,7 @@ const Home = ({quotes, products, articles}) => {
             })}
           </Slider>
         </div>
-      </section>
+      </section> */}
       <section className="container flex flex-col gap-7 py-6 md:py-10 lg:py-[60px] font-Mon">
         <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">
           {t('main.main_about.title')}
